@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log 78AQ/DX - Alfa Quebec</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  h1 { text-align: center; color: #0d2a54; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
+  .subtitle { text-align: center; color: #666; margin-bottom: 20px; font-size: 14px; }
+  .badge { display: inline-block; background: #0d2a54; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; }
+  .stats { text-align: center; background: #0d2a54; color: #fff; padding: 12px; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
+  
+  .search-box { position: relative; margin: 20px 0 10px 0; }
+  .search-box input { width: 100%; padding: 14px 45px 14px 18px; font-size: 17px; border: 2px solid #0d2a54; border-radius: 30px; outline: none; box-sizing: border-box; transition: 0.2s; text-transform: uppercase; }
+  .search-box input:focus { border-color: #1a4da0; box-shadow: 0 0 0 3px rgba(13,42,84,0.15); }
+  .search-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #0d2a54; }
+  .clear-btn { position: absolute; right: 45px; top: 50%; transform: translateY(-50%); background: #e0e0e0; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; display: none; font-size: 14px; line-height: 1; }
+  .clear-btn:hover { background: #ccc; }
+
+  .search-result-banner { text-align: center; margin: 15px 0; min-height: 32px; }
+  .in-log { color: #ff0000; font-weight: 900; font-size: 28px; letter-spacing: 2px; text-transform: uppercase; display: none; animation: pulse 0.5s ease; }
+  .not-in-log { color: #888; font-weight: bold; font-size: 20px; letter-spacing: 1px; text-transform: uppercase; display: none; }
+  @keyframes pulse { 0% { transform: scale(0.8); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+  mark { background: #ffeb3b; padding: 0 3px; border-radius: 3px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #0d2a54; color: #fff; padding: 12px; text-align: left; }
+  td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  tr.found { background: #ffe6e6 !important; }
+  tr:hover { background: #eef3ff; }
+  tr:nth-child(even) { background: #f8faff; }
+  .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ALFA QUEBEC</h1>
+  <div style="text-align:center; margin-bottom:15px;"><span class="badge">78AQ/DX - ALFA QUEBEC</span></div>
+  <div class="subtitle">Official Log - Date: 02/10/2026 - Operator: 78AQ/DX</div>
+    <div style="text-align:center; margin: 15px 0; padding: 14px 18px; background: #fff3cd; border: 2px solid #ffcc00; border-radius: 8px; color: #7a5900;">
+    <span style="font-size:20px; vertical-align:middle;">⚠️</span> <em style="font-size:16px; font-weight:900; letter-spacing:1px; text-transform:uppercase;">ANY POSSIBLE ERRORS WILL BE CORRECTED THE FOLLOWING DAY</em>
+  </div>
+
+  <div class="stats" id="stats">Total QSO: 234 - All 59</div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search your callsign... e.g. 14AT072">
+    <button class="clear-btn" id="clearBtn" title="Clear">×</button>
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <div class="search-result-banner" id="banner">
+    <div class="in-log" id="inLog">✓ IN THE LOG</div>
+    <div class="not-in-log" id="notInLog">✗ NOT IN LOG</div>
+    <div id="countInfo" style="font-size:13px;color:#555;margin-top:5px;"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Callsign</th><th>Date</th><th>RST</th></tr>
+    </thead>
+    <tbody id="logBody">
+      <tr><td>1</td><td><b>14DA049</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>2</td><td><b>14DA181</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>3</td><td><b>14AT072</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>4</td><td><b>19AT103</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>5</td><td><b>19AT043</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>6</td><td><b>19AT447</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>7</td><td><b>47DA103</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>8</td><td><b>161AT027</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>9</td><td><b>14AT222</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>10</td><td><b>161SD102</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>11</td><td><b>153AT777</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>12</td><td><b>26SW387</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>13</td><td><b>108AT176</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>14</td><td><b>1AT311</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>15</td><td><b>14RC267</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>16</td><td><b>14DA059</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>17</td><td><b>26MP1305</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>18</td><td><b>14LG061</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>19</td><td><b>14RC019</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>20</td><td><b>14RA041</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>21</td><td><b>19AT515</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>22</td><td><b>14DX019</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>23</td><td><b>14AT371</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>24</td><td><b>108LA019</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>25</td><td><b>14VD070</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>26</td><td><b>1EK116</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>27</td><td><b>1AT1875</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>28</td><td><b>1AT1012</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>29</td><td><b>1AT051</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>30</td><td><b>30AT766</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>31</td><td><b>14EK114</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>32</td><td><b>14SD008</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>33</td><td><b>14AT302</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>34</td><td><b>1AT699</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>35</td><td><b>26DX047</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>36</td><td><b>1EK156</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>37</td><td><b>161AT106</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>38</td><td><b>1SA04</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>39</td><td><b>1EK048</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>40</td><td><b>18AQ002</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>41</td><td><b>14SD150</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>42</td><td><b>14RC610</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>43</td><td><b>14RC278</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>44</td><td><b>47PL122</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>45</td><td><b>1AT1692</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>46</td><td><b>35AT160</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>47</td><td><b>14AT193</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>48</td><td><b>47DK101</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>49</td><td><b>1AT704</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>50</td><td><b>68AT108</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>51</td><td><b>68CI749</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>52</td><td><b>1AT493</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>53</td><td><b>161AT504</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>54</td><td><b>1AT706</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>55</td><td><b>14FDX938</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>56</td><td><b>14EK154</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>57</td><td><b>161DA005</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>58</td><td><b>21EE102</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>59</td><td><b>1AT353</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>60</td><td><b>1AQ101</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>61</td><td><b>47AT818</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>62</td><td><b>47TL058</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>63</td><td><b>47TW001</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>64</td><td><b>26AT122</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>65</td><td><b>14AT124</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>66</td><td><b>14SD146</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>67</td><td><b>14SD154</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>68</td><td><b>1AT169</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>69</td><td><b>14SD124</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>70</td><td><b>14RC036</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>71</td><td><b>14SD114</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>72</td><td><b>1SD110</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>73</td><td><b>14AT128</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>74</td><td><b>161AT033</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>75</td><td><b>1AT1943</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>76</td><td><b>14AT140</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>77</td><td><b>47PL101</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>78</td><td><b>47SD101</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>79</td><td><b>14AT120</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>80</td><td><b>14AT123</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>81</td><td><b>14RC024</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>82</td><td><b>14RC060</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>83</td><td><b>14SD122</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>84</td><td><b>19AT444</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>85</td><td><b>1AT1846</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>86</td><td><b>30SA015</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>87</td><td><b>26AT010</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>88</td><td><b>1AT1128</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>89</td><td><b>14RC020</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>90</td><td><b>14RC033</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>91</td><td><b>1AT1293</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>92</td><td><b>14AT130</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>93</td><td><b>14SD116</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>94</td><td><b>108EE001</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>95</td><td><b>14SD118</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>96</td><td><b>1AT1717</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>97</td><td><b>1AT1020</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>98</td><td><b>14SD110</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>99</td><td><b>14AT125</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>100</td><td><b>14SD149</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>101</td><td><b>14AT126</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>102</td><td><b>1AT1818</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>103</td><td><b>14RC030</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>104</td><td><b>1AT1819</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>105</td><td><b>1AT1795</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>106</td><td><b>14RC013</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>107</td><td><b>1AT1686</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>108</td><td><b>1AT1847</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>109</td><td><b>161SD012</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>110</td><td><b>14AT143</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>111</td><td><b>14AT141</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>112</td><td><b>14RC012</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>113</td><td><b>14AT142</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>114</td><td><b>14AT138</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>115</td><td><b>14AT136</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>116</td><td><b>14AT131</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>117</td><td><b>14AT134</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>118</td><td><b>26AT117</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>119</td><td><b>14DA032</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>120</td><td><b>14AT137</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>121</td><td><b>14RC037</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>122</td><td><b>1SD007</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>123</td><td><b>14AT106</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>124</td><td><b>161AT004</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>125</td><td><b>161SD004</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>126</td><td><b>1AT181</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>127</td><td><b>1AT1055</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>128</td><td><b>14AT132</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>129</td><td><b>14RC017</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>130</td><td><b>1AT1809</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>131</td><td><b>14AT112</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>132</td><td><b>14SD102</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>133</td><td><b>1AT1689</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>134</td><td><b>14RC032</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>135</td><td><b>14AT110</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>136</td><td><b>14AT111</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>137</td><td><b>1AT1886</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>138</td><td><b>14AT135</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>139</td><td><b>14RC043</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>140</td><td><b>14AT105</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>141</td><td><b>30ST016</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>142</td><td><b>14RC039</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>143</td><td><b>14AT104</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>144</td><td><b>1AT1887</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>145</td><td><b>161AT005</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>146</td><td><b>14AT103</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>147</td><td><b>1AT1848</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>148</td><td><b>14AT102</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>149</td><td><b>26AT007</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>150</td><td><b>1AT626</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>151</td><td><b>161AT070</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>152</td><td><b>161SD025</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>153</td><td><b>1AT486</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>154</td><td><b>104PAT222</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>155</td><td><b>14AG820</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>156</td><td><b>1AT1982</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>157</td><td><b>3KLS001</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>158</td><td><b>1SD125</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>159</td><td><b>1AT572</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>160</td><td><b>1AT682</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>161</td><td><b>1AQ010</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>162</td><td><b>14DA370</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>163</td><td><b>14RC275</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>164</td><td><b>14DA070</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>165</td><td><b>329C010</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>166</td><td><b>1AT737</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>167</td><td><b>14EE22</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>168</td><td><b>14AT139</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>169</td><td><b>14LMB82</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>170</td><td><b>35SSB079</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>171</td><td><b>1AT455</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>172</td><td><b>11SD119</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>173</td><td><b>14RC664</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>174</td><td><b>14RC374</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>175</td><td><b>14RC462</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>176</td><td><b>1WM608</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>177</td><td><b>14AT197</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>178</td><td><b>1SR183</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>179</td><td><b>14AT066</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>180</td><td><b>1SR258</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>181</td><td><b>330SK974</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>182</td><td><b>3KPI001</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>183</td><td><b>26AT155</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>184</td><td><b>14AT401</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>185</td><td><b>30CB017</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>186</td><td><b>14AP015</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>187</td><td><b>18RC113</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>188</td><td><b>161SD050</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>189</td><td><b>14LG56</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>190</td><td><b>29LR049</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>191</td><td><b>13LR010</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>192</td><td><b>1AT1566</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>193</td><td><b>1AT1961</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>194</td><td><b>1GIR198</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>195</td><td><b>109HA465</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>196</td><td><b>14EK050</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>197</td><td><b>3KRC564</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>198</td><td><b>163OP216</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>199</td><td><b>3KCI104</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>200</td><td><b>14RC066</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>201</td><td><b>14EK487</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>202</td><td><b>161DA015</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>203</td><td><b>56TR277</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>204</td><td><b>1EK058</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>205</td><td><b>178AT71</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>206</td><td><b>26AT022</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>207</td><td><b>14AT148</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>208</td><td><b>14MO74</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>209</td><td><b>13EK101</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>210</td><td><b>14EK049</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>211</td><td><b>30RC013</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>212</td><td><b>14FA115</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>213</td><td><b>3AT103</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>214</td><td><b>1AT194</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>215</td><td><b>56LR007</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>216</td><td><b>14AT824</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>217</td><td><b>3KIR210</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>218</td><td><b>14A33</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>219</td><td><b>161SD104</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>220</td><td><b>3AT021</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>221</td><td><b>26DQ045</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>222</td><td><b>14AA11</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>223</td><td><b>1AT810</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>224</td><td><b>14AT346</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>225</td><td><b>14AT464</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>226</td><td><b>34AT185</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>227</td><td><b>26AT016</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>228</td><td><b>161EX015</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>229</td><td><b>45SO030</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>230</td><td><b>93AT411</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>231</td><td><b>14AT109</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>232</td><td><b>1AT771</b></td><td>2026-10-02</td><td>59</td></tr>
+          <tr><td>233</td><td><b>34RC213</b></td><td>2026-10-02</td><td>59</td></tr>
+      <tr><td>234</td><td><b>161AT018</b></td><td>2026-10-02</td><td>59</td></tr>
+    </tbody>
+  </table>
+  <div class="footer">Alfa Quebec - Alfa Quebec - 78AQ/DX</div>
+</div>
+
+<script>
+const input = document.getElementById('searchInput');
+const tbody = document.getElementById('logBody');
+const rows = Array.from(tbody.getElementsByTagName('tr'));
+const stats = document.getElementById('stats');
+const inLog = document.getElementById('inLog');
+const notInLog = document.getElementById('notInLog');
+const countInfo = document.getElementById('countInfo');
+const clearBtn = document.getElementById('clearBtn');
+
+rows.forEach(row => {
+  const cell = row.cells[1];
+  cell.dataset.original = cell.innerHTML;
+});
+
+function filterLog() {
+  const term = input.value.trim().toUpperCase();
+  let visible = 0;
+
+  clearBtn.style.display = term ? 'block' : 'none';
+
+  rows.forEach(row => {
+    const callsignCell = row.cells[1];
+    const callsignText = callsignCell.textContent.toUpperCase();
+    const match = term !== '' && callsignText.includes(term);
+
+    if (term === '') {
+      row.style.display = '';
+      row.classList.remove('found');
+      callsignCell.innerHTML = callsignCell.dataset.original;
+    } else if (match) {
+      row.style.display = '';
+      row.classList.add('found');
+      const regex = new RegExp(`(${term})`, 'gi');
+      const originalText = callsignCell.textContent;
+      callsignCell.innerHTML = '<b>' + originalText.replace(regex, '<mark>$1</mark>') + '</b>';
+      visible++;
+    } else {
+      row.style.display = 'none';
+      row.classList.remove('found');
+      callsignCell.innerHTML = callsignCell.dataset.original;
+    }
+  });
+
+  if (term === '') {
+    inLog.style.display = 'none';
+    notInLog.style.display = 'none';
+    countInfo.textContent = '';
+    stats.textContent = 'Total QSO: 234 - All 59';
+  } else if (visible > 0) {
+    inLog.style.display = 'block';
+    notInLog.style.display = 'none';
+    countInfo.textContent = `Found ${visible} match${visible>1?'es':''} for "${term}" - Filtered: ${visible} / 234`;
+    stats.textContent = `Filtered: ${visible} / 234 - IN THE LOG`;
+  } else {
+    inLog.style.display = 'none';
+    notInLog.style.display = 'block';
+    countInfo.textContent = `No results for "${term}"`;
+    stats.textContent = `Filtered: 0 / 234 - NOT IN LOG`;
+  }
+}
+
+input.addEventListener('input', filterLog);
+clearBtn.addEventListener('click', () => {
+  input.value = '';
+  filterLog();
+  input.focus();
+});
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    input.value = '';
+    filterLog();
+  }
+});
+</script>
+</body>
+</html>
